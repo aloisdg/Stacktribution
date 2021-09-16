@@ -9,6 +9,16 @@ enum DocType {
   'jsDoc',
 }
 
+/**
+ * @author Gary Vernon Grubb <https://stackoverflow.com/users/2943174/gary-vernon-grubb>
+ * @copyright 2018 Gary Vernon Grubb
+ * @license CC BY-SA 4.0
+ * @see {@link https://stackoverflow.com/a/52033479/1248177|In reactJS, how to copy text to clipboard?}
+ */
+const copy = (content: string) => {
+  navigator.clipboard.writeText(content);
+};
+
 const getYearFromUnix = (unixDate: number) =>
   new Date(unixDate * 1000).getFullYear();
 
@@ -145,11 +155,7 @@ const Index = () => {
         <button
           className="bg-yellow-500 text-white active:bg-yellow-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mb-3 ease-linear transition-all duration-150"
           type="button"
-          onClick={() => {
-            navigator.clipboard.writeText(
-              docType === DocType.xmlDoc ? xmlDoc : jsDoc
-            );
-          }}
+          onClick={() => copy(docType === DocType.xmlDoc ? xmlDoc : jsDoc)}
         >
           Copy
         </button>
