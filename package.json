@@ -1,5 +1,5 @@
 {
-  "name": "next-js-boilerplate",
+  "name": "stacktribution",
   "version": "1.0.0",
   "scripts": {
     "dev": "next dev",
@@ -48,5 +48,5 @@
     "tailwindcss": "^2.2.9",
     "typescript": "^4.4.2"
   },
-  "license": "ISC"
+  "license": "MIT"
 }
