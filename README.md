@@ -2,6 +2,10 @@
 
 Proper attribution done fast.
 
+### Demo
+
+![demo_stacktribution](https://user-images.githubusercontent.com/3449303/133624048-0093e2ef-7aa2-4d5e-b725-db96e00c509a.gif)
+
 ### Requirements
 
 - Node.js and npm
