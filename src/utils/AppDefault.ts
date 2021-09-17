@@ -1,4 +1,6 @@
-export const AppDefault = {
+import Attribution from '../models/Attribution';
+
+export const AppDefault: Attribution = {
   answererName: 'Ilmari Karonen',
   answererProfile: 'https://stackoverflow.com/users/411022/ilmari-karonen',
   answerUrl: 'https://stackoverflow.com/a/6865024/1248177',
