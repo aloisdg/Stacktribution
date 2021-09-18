@@ -39,7 +39,7 @@ const Index = () => {
       <div className="shadow-md rounded-md flex flex-col">
         <div className="mb-3 flex items-end">
           <label htmlFor="answerIdInput" className="text-white w-full">
-            Answer id or url:
+            Add an answer id or url:
             <div className="flex">
               <input
                 id="answerIdInput"
@@ -51,7 +51,7 @@ const Index = () => {
                   if (id) send('UPDATEID', { value: id });
                 }}
                 type="text"
-                placeholder="6865024"
+                placeholder="e.g. 6865024 or https://stackoverflow.com/a/61546346/1248177"
                 className="w-full bg-gray-800 placeholder-gray-600 rounded border border-gray-700 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-800 text-base outline-none text-gray-300 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
 
@@ -68,7 +68,7 @@ const Index = () => {
         </div>
 
         <label className="mb-3 text-white">
-          Select your attribution&apos;s flavor:
+          Select a flavor:
           <select
             onChange={(e) =>
               send('UPDATEDOCTYPE', {
