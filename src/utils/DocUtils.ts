@@ -24,7 +24,7 @@ export const buildXmlDoc = (model: Attribution): string => {
 export const buildAdjamDoc = (model: Attribution): string => {
   return `// Code created with the help of a Stack Overflow question
 // ${model.question.title} <${model.question.link}>
-// Question by ${model.question.link} <${model.question.author.link}>
+// Question by ${model.question.author.name} <${model.question.author.link}>
 // Answer by ${model.answer.author.name} <${model.answer.author.link}>
 `;
 };
