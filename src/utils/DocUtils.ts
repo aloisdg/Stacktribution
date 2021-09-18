@@ -16,7 +16,7 @@ export const buildXmlDoc = (model: Attribution): string => {
   return `/// <remarks>
 /// Inspired from <a href="${model.answer.author.link}">${model.answer.author.name}</a>'s
 /// <a href="${model.answer.link}">answer</a> published on Stack Overflow under ${license}</a>
-/// on <a href="${model.question.link}">${model.question.title}</a>.
+/// on <a href="${model.question.link}">${model.question.title}</a> by <a href="${model.question.author.link}">${model.question.author.name}</a>.
 /// </remarks>`;
 };
 
