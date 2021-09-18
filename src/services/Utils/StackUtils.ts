@@ -15,10 +15,12 @@ export const getYearFromUnix = (unixDate: number) =>
 
 const getLicenseLink = (license: string) => {
   switch (license) {
-    case 'CC BY-SA 3.0':
-      return 'https://creativecommons.org/licenses/by-sa/3.0/';
     case 'CC BY-SA 4.0':
       return 'https://creativecommons.org/licenses/by-sa/4.0/';
+    case 'CC BY-SA 3.0':
+      return 'https://creativecommons.org/licenses/by-sa/3.0/';
+    case 'CC BY-SA 2.5':
+      return 'https://creativecommons.org/licenses/by-sa/2.5/';
     default:
       return undefined;
   }
