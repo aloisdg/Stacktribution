@@ -99,8 +99,9 @@ const Index = () => {
           className="text-white bg-yellow-600 border-0 py-2 px-6 hover:bg-yellow-500 rounded text-lg outline-none focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-800 uppercase"
           type="button"
           onClick={() => send('COPY')}
+          disabled={current.matches('copying')}
         >
-          Copy
+          {current.matches('copying') ? 'Copied!' : 'Copy'}
         </button>
       </div>
     </Main>

@@ -25,59 +25,76 @@ const mapDocType = (
   }
 };
 
-export const FetchMachine = createMachine<FetchContext>({
-  initial: 'idle',
-  context: {
-    jsDoc: buildJsDoc(AppDefault),
-    xmlDoc: buildXmlDoc(AppDefault),
-    adjamDoc: buildAdjamDoc(AppDefault),
-    answerId: '6176851',
-    docType: DocType.jsDoc,
+export const FetchMachine = createMachine<FetchContext>(
+  {
+    initial: 'idle',
+    context: {
+      jsDoc: buildJsDoc(AppDefault),
+      xmlDoc: buildXmlDoc(AppDefault),
+      adjamDoc: buildAdjamDoc(AppDefault),
+      answerId: '6176851',
+      docType: DocType.jsDoc,
+    },
+    states: {
+      idle: {
+        on: {
+          FETCH: 'loading',
+          UPDATEID: {
+            actions: assign({
+              answerId: (_, event) => event.value,
+            }),
+          },
+          // COPY: {
+          //   actions: (context, _) => copy(mapDocType(context.docType, context)),
+          // },
+          COPY: 'copying',
+          UPDATEDOCTYPE: {
+            actions: assign({
+              docType: (_, event) => event.value,
+            }),
+          },
+        },
+      },
+      loading: {
+        invoke: {
+          src: (context, _) => fetchStackOverflowApi(context.answerId),
+          onDone: {
+            target: 'fetch',
+            actions: assign({
+              jsDoc: (_, event) => buildJsDoc(event.data),
+              xmlDoc: (_, event) => buildXmlDoc(event.data),
+              adjamDoc: (_, event) => buildAdjamDoc(event.data),
+            }),
+          },
+          onError: {
+            target: 'idle',
+          },
+        },
+        on: {
+          FETCHED_SUCCESSFULLY: {
+            target: 'idle',
+          },
+        },
+      },
+      copying: {
+        exit: ['copyDocType'],
+        after: {
+          SHORT_DELAY: { target: 'idle' },
+        },
+      },
+      fetch: {
+        on: {
+          CLOSE: 'idle',
+        },
+      },
+    },
   },
-  states: {
-    idle: {
-      on: {
-        FETCH: 'loading',
-        UPDATEID: {
-          actions: assign({
-            answerId: (_, event) => event.value,
-          }),
-        },
-        COPY: {
-          actions: (context, _) => copy(mapDocType(context.docType, context)),
-        },
-        UPDATEDOCTYPE: {
-          actions: assign({
-            docType: (_, event) => event.value,
-          }),
-        },
-      },
+  {
+    delays: {
+      SHORT_DELAY: 1000,
     },
-    loading: {
-      invoke: {
-        src: (context, _) => fetchStackOverflowApi(context.answerId),
-        onDone: {
-          target: 'fetch',
-          actions: assign({
-            jsDoc: (_, event) => buildJsDoc(event.data),
-            xmlDoc: (_, event) => buildXmlDoc(event.data),
-            adjamDoc: (_, event) => buildAdjamDoc(event.data),
-          }),
-        },
-        onError: {
-          target: 'idle',
-        },
-      },
-      on: {
-        FETCHED_SUCCESSFULLY: {
-          target: 'idle',
-        },
-      },
+    actions: {
+      copyDocType: (context, _) => copy(mapDocType(context.docType, context)),
     },
-    fetch: {
-      on: {
-        CLOSE: 'idle',
-      },
-    },
-  },
-});
+  }
+);
