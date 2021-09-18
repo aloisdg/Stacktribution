@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+const tailwindScrollbar = require('tailwind-scrollbar');
+
 module.exports = {
   mode: 'jit',
   purge: ['./src/**/*.{js,ts,jsx,tsx}'],
@@ -39,9 +42,12 @@ module.exports = {
           800: '#2c5282',
           900: '#2a4365',
         },
+        yellow: {
+          999: 'rgba(217, 119, 6, 0.2)',
+        },
       },
     },
   },
   variants: {},
-  plugins: [],
+  plugins: [tailwindScrollbar],
 };

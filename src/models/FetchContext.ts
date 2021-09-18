@@ -4,6 +4,7 @@ type FetchContext = {
   answerId: string;
   jsDoc: string;
   xmlDoc: string;
+  adjamDoc: string;
   docType: DocType;
 };
 

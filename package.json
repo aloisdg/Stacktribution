@@ -10,6 +10,7 @@
     "build-prod": "run-s clean build export",
     "clean": "rimraf .next out",
     "lint": "next lint",
+    "fix": "next lint --fix",
     "build-types": "tsc --noEmit --pretty",
     "prepare": "husky install"
   },
@@ -47,6 +48,7 @@
     "postcss": "^8.3.6",
     "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
+    "tailwind-scrollbar": "^1.3.1",
     "tailwindcss": "^2.2.9",
     "typescript": "^4.4.2"
   },

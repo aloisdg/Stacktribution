@@ -1,6 +1,7 @@
 enum DocType {
-  'xmlDoc',
   'jsDoc',
+  'xmlDoc',
+  'adjamDoc',
 }
 
 export default DocType;
