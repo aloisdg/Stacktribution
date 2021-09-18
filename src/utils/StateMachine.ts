@@ -44,13 +44,12 @@ export const FetchMachine = createMachine<FetchContext>(
               answerId: (_, event) => event.value,
             }),
           },
-          // COPY: {
-          //   actions: (context, _) => copy(mapDocType(context.docType, context)),
-          // },
           COPY: 'copying',
           UPDATEDOCTYPE: {
             actions: assign({
-              docType: (_, event) => event.value,
+              docType: (_, event) => {
+                return event.value;
+              },
             }),
           },
         },
@@ -59,7 +58,7 @@ export const FetchMachine = createMachine<FetchContext>(
         invoke: {
           src: (context, _) => fetchStackOverflowApi(context.answerId),
           onDone: {
-            target: 'fetch',
+            target: 'idle',
             actions: assign({
               jsDoc: (_, event) => buildJsDoc(event.data),
               xmlDoc: (_, event) => buildXmlDoc(event.data),
@@ -80,11 +79,6 @@ export const FetchMachine = createMachine<FetchContext>(
         exit: ['copyDocType'],
         after: {
           SHORT_DELAY: { target: 'idle' },
-        },
-      },
-      fetch: {
-        on: {
-          CLOSE: 'idle',
         },
       },
     },
