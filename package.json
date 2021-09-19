@@ -12,7 +12,11 @@
     "lint": "next lint",
     "fix": "next lint --fix",
     "build-types": "tsc --noEmit --pretty",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "cypress": "cypress open",
+    "cypress:headless": "cypress run",
+    "e2e": "start-server-and-test start http://localhost:3000 cypress",
+    "e2e:headless": "start-server-and-test start http://localhost:3000 cypress:headless"
   },
   "dependencies": {
     "@xstate/react": "^1.6.1",
@@ -31,6 +35,7 @@
     "@typescript-eslint/parser": "^4.30.0",
     "autoprefixer": "^10.3.4",
     "cross-env": "^7.0.3",
+    "cypress": "^8.4.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-airbnb-typescript": "^14.0.0",
@@ -42,6 +47,7 @@
     "eslint-plugin-react": "^7.25.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-unused-imports": "^1.1.4",
+    "eslint-plugin-cypress": "^2.12.1",
     "husky": "^7.0.2",
     "lint-staged": "^11.1.2",
     "npm-run-all": "^4.1.5",
