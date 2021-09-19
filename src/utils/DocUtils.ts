@@ -11,11 +11,11 @@ import { Attribution } from '../models/Attribution';
 
 export const buildXmlDoc = (model: Attribution): string => {
   const license = model.answer.licenseLink
-    ? `<a href="${model.answer.licenseLink}">${model.answer.license}`
+    ? `<a href="${model.answer.licenseLink}">${model.answer.license}</a>`
     : model.answer.license;
   return `/// <remarks>
 /// Inspired from <a href="${model.answer.author.link}">${model.answer.author.name}</a>'s
-/// <a href="${model.answer.link}">answer</a> published on Stack Overflow under ${license}</a>
+/// <a href="${model.answer.link}">answer</a> published on Stack Overflow under ${license}.
 /// on <a href="${model.question.link}">${model.question.title}</a> by <a href="${model.question.author.link}">${model.question.author.name}</a>.
 /// </remarks>`;
 };
