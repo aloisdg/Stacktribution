@@ -8,6 +8,7 @@ export const AppDefault: Attribution = {
     },
     link: 'https://stackoverflow.com/a/6865024/1248177',
     license: 'CC BY-SA 3.0',
+    licenseLink: 'https://creativecommons.org/licenses/by-sa/3.0/',
     year: 2018,
   },
   question: {
