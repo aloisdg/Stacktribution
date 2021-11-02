@@ -2,9 +2,25 @@
 
 Proper attribution done fast.
 
-I realise that most people don't respect attribution rules from Stack Overflow. Stacktribution is a small web app to help with that.
+I realise that most people don't respect attribution rules from Stack Overflow. Stacktribution is a small web app to help with that. Beside compliance, it fixes some trouble by saving answers next to the source code.
 
-First attribution is [required](https://stackoverflow.blog/2009/06/25/attribution-required/).
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/3449303/139926960-e3f5fab4-5634-4a20-96c8-ddc832922ab2.png" alt="meme" height="280">
+  <br>
+  <a href="https://www.reddit.com/r/ProgrammerHumor/comments/qkna4i/when_you_run_into_the_same_issue_years_later/">When you run into the same issue years later</a>
+  <br>
+    <img src="https://user-images.githubusercontent.com/3449303/139929881-aa005a6d-2e33-490b-b89a-3100832b00dd.png" alt="comments"/>
+  <br>
+  <a href="https://www.reddit.com/r/ProgrammerHumor/comments/q7tch9/nothing_can_match_this_feeling/hgl4kfs/">Add the link to your code</a>
+</p>
+
+### Demo
+
+![demo_stacktribution](https://user-images.githubusercontent.com/3449303/133624048-0093e2ef-7aa2-4d5e-b725-db96e00c509a.gif)
+
+### StackExchange's rules
+
+Attribution is [required](https://stackoverflow.blog/2009/06/25/attribution-required/).
 
 > You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work).
 
@@ -17,10 +33,6 @@ There are not an official way to do it, but here are the rules:
 > 4. Hyperlink each author name directly back to their user profile page on the source site (e.g., http://stackoverflow.com/users/12345/username)
 
 From that, I created some compliant [templates](https://github.com/aloisdg/Stacktribution/blob/main/src/utils/DocUtils.ts) you can fill automaticaly then copy/paste above any snippet from Stack Overflow inserted in your code base.
-
-### Demo
-
-![demo_stacktribution](https://user-images.githubusercontent.com/3449303/133624048-0093e2ef-7aa2-4d5e-b725-db96e00c509a.gif)
 
 ### Requirements
 
